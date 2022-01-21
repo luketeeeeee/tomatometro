@@ -1,4 +1,5 @@
 import React from 'react';
+import { Display } from '../Display';
 
 import { Container } from './styles';
 
@@ -11,11 +12,7 @@ export function Main() {
         <button type="button" id="longPauseButton">Pausa Longa</button>
       </div>
 
-      {/* <Display 
-        itsCounting={false} 
-        minutes={time.minutes} 
-        seconds={time.seconds}
-      /> */}
+      <Display />
 
       <div className="control-buttons">
         <button type="button" id="startButton">Começar</button>
