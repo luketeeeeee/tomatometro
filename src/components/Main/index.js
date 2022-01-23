@@ -1,29 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { getRemainingTimeUntilMsTimestamp } from '../../utils/CountdownUtils';
+import Countdown from 'react-countdown';
 
 import { Container } from './styles';
 
-const defaultTime = {
-  seconds: '00',
-  minutes: '25'
-}
-
-export function Main({countdownTimestampMs}) {
-  const [remainingTime, setRemainingTime] = useState(defaultTime);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      updateRemainingTime(countdownTimestampMs);
-    }, 1000)
-  
-    return () => clearInterval(intervalId);
-
-  }, [countdownTimestampMs]);
-  
-  function updateRemainingTime(countdown) {
-    setRemainingTime(getRemainingTimeUntilMsTimestamp(countdown));
-  }
-
+export function Main() {
   return (
     <Container>
       <div className="timing-buttons">
@@ -32,13 +12,16 @@ export function Main({countdownTimestampMs}) {
         <button type="button" id="longPauseButton">Pausa Longa</button>
       </div>
 
-      <h1>{remainingTime.minutes}:{remainingTime.seconds}</h1>
+      <Countdown date={Date.now() + 1500000} zeroPadTime={2} autoStart={false} />
 
       <div className="control-buttons">
         <button
           type="button"
           id="startButton"
-          >Começar</button>
+
+          >
+            Começar
+        </button>
         <button type="button" id="restartButton">Reiniciar</button>
       </div>
     </Container>
