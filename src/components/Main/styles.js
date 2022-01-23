@@ -34,6 +34,12 @@ export const Container = styled.main`
     }
   }
 
+  h1 {
+    color: var(--main-red);
+    font-size: 3rem;
+    margin-bottom: 5rem;
+  }
+
   .control-buttons {
     width: 35%;
     display: grid;
