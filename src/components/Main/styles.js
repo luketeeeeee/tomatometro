@@ -16,6 +16,7 @@ export const Container = styled.main`
     button {
       height: 40px;
       font-size: 1.2rem;
+      font-weight: 600;
       color: var(--text-body);
       border: none;
       border-radius: 0.25rem;
@@ -34,6 +35,12 @@ export const Container = styled.main`
     }
   }
 
+  h1 {
+    color: var(--main-red);
+    font-size: 3rem;
+    margin-bottom: 5rem;
+  }
+
   .control-buttons {
     width: 35%;
     display: grid;
@@ -43,13 +50,14 @@ export const Container = styled.main`
 
     button {
       height: 50px;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
+      font-weight: 700;
       color: var(--text-body);
       border: none;
       border-radius: 0.75rem;
     }
 
-    #startButton {
+    .startButton {
       background: var(--green);
     }
 

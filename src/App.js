@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Main />
+      <Main countdownTimestampMs={Math.floor(Date.now() + 1502000)}/>
       <GlobalStyle />
     </div>
   );
