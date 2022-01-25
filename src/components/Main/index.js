@@ -6,10 +6,18 @@ export function Main() {
   const [ seconds, setSeconds ] = useState(0);
   const [ isStarted, setIsStarted ] = useState(false);
 
+  function handleChangeCountdownTime(minutes, seconds) {
+    setIsStarted(false);
+    setMinutes(minutes);
+    setSeconds(seconds);
+    setSeconds(seconds);
+  }
+
   useEffect(() => {
     console.log(`estado atual do isStarted: ${isStarted}`)
     if (isStarted) {
       let interval = setInterval(() => {
+        clearInterval(interval);
         if (seconds === 0) {
           if (minutes !== 0) {
             setSeconds(59);
@@ -18,8 +26,6 @@ export function Main() {
         } else {
           setSeconds(seconds - 1);
         }
-
-        clearInterval(interval);
       }, 1000);
     }
   }, [seconds, minutes, isStarted]);
@@ -33,9 +39,24 @@ export function Main() {
         <button
           type="button"
           id="pomodoroButton"
-        >Pomodoro</button>
-        <button type="button" id="shortPauseButton">Pausa Curta</button>
-        <button type="button" id="longPauseButton">Pausa Longa</button>
+          onClick={() => handleChangeCountdownTime(25, 0)}
+        >
+          Pomodoro
+        </button>
+        <button 
+          type="button" 
+          id="shortPauseButton"
+          onClick={() => handleChangeCountdownTime(5, 0)}  
+        >
+          Pausa Curta
+        </button>
+        <button
+          type="button"
+          id="longPauseButton"
+          onClick={() => handleChangeCountdownTime(15, 0)}
+        >
+          Pausa Longa
+        </button>
       </div>
 
       <h1>{displayedMinutes}:{displayedSeconds}</h1>

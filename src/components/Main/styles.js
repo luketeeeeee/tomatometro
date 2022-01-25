@@ -38,6 +38,7 @@ export const Container = styled.main`
   h1 {
     color: var(--main-red);
     font-size: 3rem;
+    font-weight: 800;
     margin-bottom: 5rem;
   }
 
